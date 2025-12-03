@@ -1,6 +1,6 @@
 %=============================================
 % INFORME DE LABORATORIO - VERIFICACIÓN Y VALIDACIÓN
-% Programación Avanzada - Universidad de las Fuerzas Armadas ESPE
+% Pruebas de Software - Universidad de las Fuerzas Armadas ESPE
 %=============================================
 
 \documentclass[12pt,a4paper]{article}
@@ -149,7 +149,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\textcolor{espeGreen}{Universidad de las Fuerzas Armadas ESPE}}
-\fancyhead[R]{\small\textcolor{darkBlue}{Programación Avanzada}}
+\fancyhead[R]{\small\textcolor{darkBlue}{Pruebas de Software}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
@@ -193,7 +193,7 @@
     \begin{minipage}{0.45\textwidth}
         \begin{flushleft}
             {\bfseries\textcolor{espeGreen}{Asignatura:}}\\
-            Programación Avanzada\\[0.5cm]
+            Pruebas de Software\\[0.5cm]
             {\bfseries\textcolor{espeGreen}{Docente:}}\\
             Ing. Enrique Calvopiña, MsC.\\[0.5cm]
             {\bfseries\textcolor{espeGreen}{NRC:}}\\
@@ -229,7 +229,7 @@
 %=============================================
 \section{Introducción}
 
-El presente informe documenta el desarrollo de la Práctica N° 2 del laboratorio de Programación Avanzada, cuyo enfoque principal fue la aplicación de técnicas de \textbf{verificación y validación} sobre el código fuente de una API REST para gestión de usuarios.
+El presente informe documenta el desarrollo de la Práctica N° 2 del laboratorio de Pruebas de Software, cuyo enfoque principal fue la aplicación de técnicas de \textbf{verificación y validación} sobre el código fuente de una API REST para gestión de usuarios.
 
 Durante el desarrollo de la práctica, se utilizaron las siguientes tecnologías:
 
@@ -617,7 +617,25 @@ module.exports = [
 
 \subsection{Resultados de las Pruebas Unitarias}
 
-Se ejecutaron las pruebas mediante el comando \texttt{npm test}, obteniendo los siguientes resultados:
+Primero se inició el servidor de la aplicación para verificar su correcto funcionamiento:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/api.png}
+    \caption{API funcionando correctamente en el puerto 3000}
+    \label{fig:api-funcionando}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:api-funcionando}, el servidor se inició exitosamente, mostrando los endpoints disponibles y confirmando que la aplicación está lista para recibir peticiones HTTP.
+
+Posteriormente, se ejecutaron las pruebas mediante el comando \texttt{npm test}, obteniendo los siguientes resultados:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/npm_test.png}
+    \caption{Resultado de la ejecución de pruebas unitarias con npm test}
+    \label{fig:npm-test}
+\end{figure}
 
 \begin{resultbox}[Ejecucion de Pruebas - npm test]
 \begin{verbatim}
@@ -653,6 +671,15 @@ Time:        1.781 s
 \subsection{Resultados de Cobertura de Código}
 
 Se ejecutó el análisis de cobertura mediante \texttt{npm run test:coverage}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/coverage.png}
+    \caption{Reporte detallado de cobertura de código generado por Jest}
+    \label{fig:coverage-report}
+\end{figure}
+
+La Figura \ref{fig:coverage-report} muestra el reporte completo de cobertura, donde se puede observar que se alcanzaron excelentes niveles de cobertura en todos los archivos del proyecto.
 
 \begin{resultbox}[Reporte de Cobertura de Código]
 \begin{verbatim}
@@ -692,6 +719,26 @@ All files            |   95.12 |      100 |   85.71 |      95 |
 \subsection{Resultados de Verificación con ESLint}
 
 Se ejecutó la verificación de código mediante \texttt{npm run lint}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/lint.png}
+    \caption{Resultado de la verificación de código con ESLint}
+    \label{fig:eslint-check}
+\end{figure}
+
+Como se observa en la Figura \ref{fig:eslint-check}, la verificación con ESLint no reportó ningún error, lo que indica que el código cumple con todas las reglas de estilo y buenas prácticas configuradas.
+
+Adicionalmente, se ejecutó el comando \texttt{npm run lint:fix} para demostrar la capacidad de corrección automática:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/lint_fix.png}
+    \caption{Ejecución de corrección automática con ESLint --fix}
+    \label{fig:eslint-fix}
+\end{figure}
+
+La Figura \ref{fig:eslint-fix} confirma que no se encontraron problemas que requieran corrección automática, validando la calidad del código desarrollado.
 
 \begin{resultbox}[Ejecución de ESLint]
 \begin{verbatim}
@@ -828,28 +875,5 @@ La verificación con ESLint demostró que el código sigue las buenas prácticas
     
     \item Node.js. (2024). \textit{Node.js Documentation}. Recuperado de: \url{https://nodejs.org/docs/}
 \end{enumerate}
-
-%=============================================
-% FIRMAS
-%=============================================
-\newpage
-\section*{Firmas}
-\vspace{2cm}
-
-\begin{center}
-\begin{tabular}{ccc}
-    \rule{5cm}{0.4pt} & \hspace{1cm} & \rule{5cm}{0.4pt} \\
-    \textbf{Mesias Mariscal} & & \textbf{Denise Rea} \\
-    Estudiante & & Estudiante \\[2cm]
-    
-    \multicolumn{3}{c}{\rule{5cm}{0.4pt}} \\
-    \multicolumn{3}{c}{\textbf{Julio Viche}} \\
-    \multicolumn{3}{c}{Estudiante} \\[2cm]
-    
-    \multicolumn{3}{c}{\rule{6cm}{0.4pt}} \\
-    \multicolumn{3}{c}{\textbf{Ing. Enrique Calvopiña, MsC.}} \\
-    \multicolumn{3}{c}{Docente} \\
-\end{tabular}
-\end{center}
 
 \end{document}
